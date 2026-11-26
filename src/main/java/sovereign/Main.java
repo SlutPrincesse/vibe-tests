@@ -8,6 +8,7 @@ import sovereign.notifications.*;
 import sovereign.scheduler.*;
 import sovereign.skills.*;
 import sovereign.project.*;
+import sovereign.permissions.*;
 import sovereign.extensions.*;
 import sovereign.plugins.*;
 import sovereign.webui.*;
@@ -22,6 +23,7 @@ public class Main {
         MemoryStore mem = new MemoryStore();
         KnowledgeBase kb = new KnowledgeBase();
         VectorStore vs = new VectorStore();
+        PermissionManager pmgr = new PermissionManager();
         NotificationManager nm = new NotificationManager();
         Scheduler sch = new Scheduler();
         SkillRegistry skills = new SkillRegistry();
@@ -43,6 +45,9 @@ public class Main {
         reg.register(new BrowserTool());
         reg.register(new CodeTool());
         reg.register(new DocumentTool());
+        reg.register(new PermissionTool(pmgr));
+        reg.register(new ToolCreatorTool(reg));
+        reg.register(new AdbTool());
 
         Agent agent = new Agent(ctx, cfg, reg);
         System.out.println("Sovereign Agent (Java) ready. tools=" + reg.names());

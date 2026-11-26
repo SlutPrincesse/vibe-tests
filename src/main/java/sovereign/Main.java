@@ -21,6 +21,7 @@ public class Main {
 
         MemoryStore mem = new MemoryStore();
         KnowledgeBase kb = new KnowledgeBase();
+        VectorStore vs = new VectorStore();
         NotificationManager nm = new NotificationManager();
         Scheduler sch = new Scheduler();
         SkillRegistry skills = new SkillRegistry();
@@ -34,6 +35,7 @@ public class Main {
         reg.register(new FileWriteTool());
         reg.register(new MemoryTool(mem));
         reg.register(new KnowledgeTool(kb));
+        reg.register(new VectorSearchTool(vs));
         reg.register(new NotificationTool(nm));
         reg.register(new SchedulerTool(sch));
         reg.register(new SkillsTool(skills));

@@ -12,6 +12,7 @@ public class Agent {
     private UtilityModel utilityModel;
     private EmbeddingModel embeddingModel;
     private final Map<String, Object> data = new HashMap<>();
+    private sovereign.extensions.ExtensionManager extensions;
 
     public Agent(AgentContext context, AgentConfig config, ToolRegistry tools) {
         this.context = context;
@@ -20,7 +21,8 @@ public class Agent {
         context.setAgent(this);
     }
 
-    public AgentContext getContext() { return context; }
+    public void setExtensions(sovereign.extensions.ExtensionManager em) { this.extensions = em; }
+    public sovereign.extensions.ExtensionManager getExtensions() { return extensions; }
     public AgentConfig getConfig() { return config; }
     public ToolRegistry getTools() { return tools; }
 

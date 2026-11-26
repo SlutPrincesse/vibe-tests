@@ -17,6 +17,7 @@ public class SmokeTest {
         MemoryStore mem = new MemoryStore();
         reg.register(new MemoryTool(mem));
         reg.register(new KnowledgeTool(new KnowledgeBase()));
+        reg.register(new VectorSearchTool(new VectorStore()));
         reg.register(new NotificationTool(new NotificationManager()));
         reg.register(new SchedulerTool(new Scheduler()));
         reg.register(new SkillsTool(new SkillRegistry()));
@@ -27,7 +28,6 @@ public class SmokeTest {
         reg.register(new BrowserTool());
         reg.register(new CodeTool());
         reg.register(new DocumentTool());
-        // exercise
         Map<String,Object> a = new HashMap<>(); a.put("action","set"); a.put("key","k"); a.put("value","v");
         System.out.println("memory: " + reg.get("memory").execute(a));
         a = new HashMap<>(); a.put("action","list");

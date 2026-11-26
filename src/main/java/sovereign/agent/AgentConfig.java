@@ -7,4 +7,6 @@ public class AgentConfig {
     public int maxTokens = 4096;
     public double temperature = 0.7;
     public String systemPrompt = "You are a helpful agent.";
+    public String apiBaseUrl = "https://api.openai.com/v1";
+    public String apiKey = "";
 }

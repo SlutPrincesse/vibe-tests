@@ -40,6 +40,7 @@ public class Main {
         reg.register(new ProjectTool(pm));
         reg.register(new BrowserTool());
         reg.register(new CodeTool());
+        reg.register(new DocumentTool());
 
         Agent agent = new Agent(ctx, cfg, reg);
         System.out.println("Sovereign Agent (Java) ready. tools=" + reg.names());
